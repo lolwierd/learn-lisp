@@ -1,5 +1,4 @@
 (load "pmatch.scm")
-
 ;; (define add1 (lambda (x) (+ x 1)))
 (define eval-expr
   (lambda (expr env)
@@ -21,7 +20,6 @@
              (if (eval-expr t env)
                  (eval-expr c env)
                  (eval-expr a env))]
-
             ;; Following lines are supposed to be beautiful but the beauty is lost on me. Help plij. :(
             ;; The rest of the code sans the top one is turing complete.
             ;; https://www.youtube.com/watch?v=OyfBQmvr2Hc
