@@ -54,6 +54,10 @@
 ;;; One important thing to note is lisp is case insensitive.
 ;;; ayAAn, Ayaan, ayaan are all represented as AYAAN.
 
+;;; defparameter declares and assigns a global variable.
+;;; Surrounded by * as a syntactic convention.
+(defparameter *author* 'ayaan)
+
 ;;; Setting Varibles
 ;;; lisp provides syntax to set varibles.
 (setf name 'Ayaan) ; => AYAAN
@@ -123,33 +127,64 @@ name ; => AYAAN
 ;;; Symbol - Standalone word.
 ;;; Symbol can pretty much contain anything other than whitespace. Even characters like +,-,/,etc
 ;;; Case insensitive.
+
 ;;; To test equality we use eq.
 (eq 'ayaan 'Ayaan)
 
 ;;; Numbers - Supports both floating point and integers.
-;;; If a decimal point in a number, it becomes floating point.    2 
+;;; If a decimal point in a number, it becomes floating point.
 
+;;; Switching to https://www.youtube.com/playlist?list=PLDV0fv5m475a2OA-0ZWG4N8hVHeaAp3zI
 
+;;; No Operator precedance because perens necessary.
 
+(defun avg (x y)
+  "Computes average of two numbers"
+  (/ (+ x y) 2.0))
+(avg 1 2)
 
+;;; Factorial
+;; (defun ! (x)
+;;   (if (= x 0)
+;;       1
+;;       (* x (! (- x 1)))))
+;;; Tail Recursion.
+;;; More Efficiant then normal recursion becuase of stack usage iirc.
+;;; As once we reach the base case, computation is over.
+;;; Also enables compiler optimizations. (Tail call optimization - TCO)
+(defun fac (n)
+  (!aux 1 1 n))
+;;; Helper function for factorial. Store all multiplications as they get computed.
+(defun !aux (r i n)
+  (if (> i n)
+      r
+      (!aux (* r i) (+ i 1) n)))
 
+;;; Returns the nth element of the list.
+;;; No error checking yet.
+(defun [] (n a)
+  (if (= n 0)
+      (first a)
+      ([] (- n 1) (rest a))))
 
+;;; Computes length of a list.
+(defun len (a)
+  (lenaux 0 a))
+(defun lenaux (n a)
+  (if (eq a '())
+      n
+      (lenaux (+ n 1) (rest a))))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+;;; Macros for assignment.
+;; (incf x y) => (setf x (+ x y))
+;; (incf x) => (incf x 1)
+;; (decf x y) => (setf x (- x y))
+;; (decf x) => (decf x 1)
+;; (push x y) => (setf y (cons x y))
+;; (pop x) => (let ((y (first x)))
+;;                 (setf x (rest x))
+;;                 y)
+;; (pushnew x y)=> (if (member x y)
+;;                      y
+;;                     (push x y))
 

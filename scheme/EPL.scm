@@ -6,7 +6,7 @@
 
 ;; inS? : n -> Bool
 (define inS?
-  (lambda (n)
+  (λ (n)
     (if (zero? n)
         #t
         (if (>= (- n 3) 0)
