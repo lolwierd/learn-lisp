@@ -11,9 +11,7 @@
 ;;; => 2+2 => 4
 ;;; Also + can take many arguments.
 (+ 1 2 3 4 5 6 7 8 9 10)
-;;; => 55
-;;; These calls are called lisp expressions and the arguments to these calls are atoms.
-;;; Lisp execution - First arguments to the function are evaluated, then the function call.
+;;; => 55 These calls are called lisp expressions and the arguments to these calls are atoms. Lisp execution - First arguments to the function are evaluated, then the function call.
 ;;; Fundamentals - Many programming languages have expressions and statements.
 ;;; Expressions are statements that return values. eg. 1+2
 ;;; Statements in turn do not return values, but have an effect. eg. x = 1+2
@@ -121,8 +119,8 @@ name ; => AYAAN
 ;;; Syntax - rules to follow for a statement to be valid lisp code.
 ;;; Semantics - meaning the valid lisp code.
 ;;; Lisp - known for simple syntax.
-;;; Therefore, very easy to write a lisp interpretor.
-;;; Because the reader which reads the code can be expressed simpley because of the simple syntax
+;;; Therefore, very easy to write a lisp interpreter.
+;;; Because the reader which reads the code can be expressed simply because of the simple syntax
 
 ;;; Symbol - Standalone word.
 ;;; Symbol can pretty much contain anything other than whitespace. Even characters like +,-,/,etc
@@ -148,6 +146,7 @@ name ; => AYAAN
 ;;   (if (= x 0)
 ;;       1
 ;;       (* x (! (- x 1)))))
+
 ;;; Tail Recursion.
 ;;; More Efficiant then normal recursion becuase of stack usage iirc.
 ;;; As once we reach the base case, computation is over.
@@ -187,4 +186,3 @@ name ; => AYAAN
 ;; (pushnew x y)=> (if (member x y)
 ;;                      y
 ;;                     (push x y))
-
